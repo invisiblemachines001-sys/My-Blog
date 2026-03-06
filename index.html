@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="google-site-verification" content="pdpCiE5kfcXy22_3VxN0_wZMjdp8Lbnzq_B5uo0MREs" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="This tutorial explains how to create virtual environment in python in windows with 'VENV' in a clear and beginner friendly way. You'll learn what virtual environments are, why they are useful for managing project dependencies, and how to create, activate, and use them. The tutorial also covers generating a requirements.txt file for sharing dependencies, checking if a Python interpreter is running in a virtual environment, and accessing base environment packages. With step-by-step demonstrations, this guide is perfect for anyone starting to work with Python projects.">
+	<meta name="keywords" content="how to create virtual environment in python in windows,Python venv,Virtual Environment,Python Tutorial,VENV,how to create virtual environment,how to create virtual environment in python,virtual environment in python in windows,how to activate virtual environment in python in windows,virtual environment python,virtual environment python windows,requirements.txt python install,requirements.txt,VENV python">
+    <title>Python Virtual Environment - VENV, pip, requirements.txt | Complete Guide for Beginners (Windows)</title>
+    <style>
+
+		@import url("css/general styles.css");
+
+		@import url("css/post.css");
+
+        
+    </style>
+</head>
+<body>
+    <header>
+		Python Virtual Environment
+	</header>
+    <main>
+		<h1>Our video on Python Virtual Environment</h1>
+		<div>
+			<iframe src="https://www.youtube.com/embed/HNZgiWSog8Q?si=KCFgAwvdRtgxDFVn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<p>I’ve covered this topic in great details, But it's a dynamic topic and it will evolve with future Python versions. So, I highly recommend checking the <a href="https://docs.python.org/3/library/venv.html">official documentation</a> after watching this video, to learn more about the latest updates.</p>
+			
+			<p>Here, I list some important updates:</p>
+			<p>Starting from version <code>3.13</code>, venv now automatically creates a <code>.gitignore</code> file for <code>Git</code>.</p>
+			<p class = "caution">The following topics weren’t included in the video as I felt they weren’t very important. However, I’ve decided to list them here in case you’re interested...</p>
+		</div>		
+		<h1>Upgrade a Virtual Environment</h1>
+        <div>
+			<h2>There are 3 things in a virtual environment that can be upgraded:</h2>
+			<img class = "float_right" src="images/venv parts.png" alt="Virtual Environment Components">
+            <ol>
+                <li>Base Python version</li>
+                <li>Core dependencies (<code>pip</code>, <code>setuptools</code> (this one was a core dependency before Python 3.12))</li>
+                <li>Installed packages</li>
+            </ol>
+        </div>
+
+        <div>
+            <h2>Upgrading Base Python Version</h2>
+			
+            <p>Currently, I have Python version 3.11.9 and 3.12.5 installed in my system (check <a href = "#py_versions">here</a>).</p>
+            
+			<pre>py -0</pre>
+
+			<img src="images\python versions installed.PNG" alt="Python Versions Installed">
+
+            <p>To upgrade an old virtual environment made with Python 3.11 to Python 3.12, run:</p>
+            
+			<pre>py -3.12 -m venv --upgrade .venv</pre>
+
+			<pre>py --version</pre>
+            
+			<img src="images/Upgrading base python version.PNG" alt="Upgrading Base Python Version">
+			<img class = "float_right" src="images\venv updating base python.gif" alt="Upgrading Base Python Version">
+			<p class = "caution">Note that this command only changes the Base Python version and doesn’t update anything else.</p>
+            
+        </div>
+
+        <div>
+            <h2>Upgrading Core Dependencies</h2>
+            <p>To update its core dependencies, run:</p>
+            <pre>py -3.12 -m venv --upgrade-dep .venv</pre>
+            <p class = "caution">Note that, <code>-3.12</code> is attached to <code>py</code> mentions the Version of the Base Python of this virtual environment.</p>
+            <p>Before upgrading core dependencies, check the version of <code>pip</code> and <code>setuptools</code> (it was a core dependency till Python 3.11).</p>
+            
+			<pre>pip list</pre>
+
+			<img src="images/packages before setup tools upgrade.PNG" alt="Packages Before Setuptools Upgrade">
+            <p>After upgrading core dependencies, <code>pip</code> has been upgraded to a newer version, but <code>setuptools</code> was at its latest version.</p>
+            <img src="images/packages after setup tools upgrade.PNG" alt="Packages After Setuptools Upgrade">
+        </div>
+
+        <div>
+            <h2>Upgrading Installed Packages</h2>
+            <p>Package versions before upgrade.</p>
+            <img src="images/packages before upgrade.PNG" alt="Packages Before Upgrade">
+            <p>To update a package installed here, use:</p>
+            <pre>pip install --upgrade &lt;package_name&gt;</pre>
+            <p>In this example, I upgrade <code>pandas</code>.</p>
+            <img src="images/upgrading pandas.PNG" alt="Upgrading Pandas">
+            <p>To update all the packages, first create a <code>requirements.txt</code> file,</p>
+			<pre>pip freeze > requirements.txt</pre>
+			<p>open it, replace <code>==</code> with <code>&gt;=</code>, and run:</p>
+            <pre>pip install --upgrade -r requirements.txt</pre>
+			<p>Here, I display the process, I shorten <code>requirements.txt</code> into <code>req.txt</code> </p>
+            <img src="images/updating all packages.gif" alt="Updating All Packages">
+            <p>The package versions after upgrade.</p>
+            <img src="images/packages after upgrade.PNG" alt="Packages After Upgrade">
+            <p class = "caution">Before upgrading the Base Python version, always check if the packages required for your project are compatible with it. Similarly, check compatibility before upgrading any packages.</p>
+        </div>
+
+		<h1 id = "py_versions">How to Have Different Versions of Python in the Same System (Windows) in Brief</h1>
+
+        <div>
+            <p>Download multiple versions of Python from <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>. Remember that you cannot install two different versions that differ only by the last number, like 3.11.2 and 3.11.5.</p>
+			<p>While installing them, you must select all the options as shown below. This procedure is the same for all Python versions.</p>
+            <img src="images/install python.gif" alt="Installing Python">
+            <p>Now, open CMD or PowerShell and run <code>py -0</code> to see all the python versions installed in your system.</p>
+            
+			<pre>py -0</pre>
+
+			<img src="images\3 python versions installed.PNG" alt="Python Versions Installed in CMD">
+            <p>This star-marked one is the currently selected Python version, which you can see if you run <code>py --version</code></p>
+            <p class = "caution">Just keep in mind that in Windows, it is strictly recommended to use <code>py</code> to invoke Python instead of <code>python</code>.</p>
+            
+			<p>By default, the <code>py</code> command selects the latest Python version. You can customize this by specifying the version explicitly, like <code>py -3.11</code> or <code>py -3.12</code>.</p>
+
+			<pre>py -3.11</pre>
+			<pre>py -3.12</pre>
+
+
+			<img src="images/using different version of python.PNG" alt="Using Different Python Versions">
+			<p>Alternatively, you can create a system-wide environment variable named <code>PY_PYTHON</code> and set its value according to the desired Python version, like <code>3.11</code>, <code>3.12</code>, <code>3.13</code>, etc. If you don't know how to create environment variables, visit: <a href="https://phoenixnap.com/kb/windows-set-environment-variable">https://phoenixnap.com/kb/windows-set-environment-variable</a>. I found their tutorial very good.</p>
+		</div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Invisible Machines</p>
+    </footer>
+</body>
+</html>

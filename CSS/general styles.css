@@ -1,0 +1,66 @@
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url("../segoe_ui/Segoe UI.ttf");
+}
+
+@font-face {
+    font-family: 'Consolas';
+    src: url("../Consolas/CONSOLA.TTF");
+}
+
+html
+{
+    box-sizing: border-box;
+}
+
+*, *::after, *::before
+{
+	font-family: "Segoe UI";
+	/* font-weight: bold; */
+    box-sizing: inherit;
+	/* To prevent font resizing in android */
+    -webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+}
+
+ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+li
+{
+	/* list-style-type: none; */
+}
+
+body
+{
+    /* 
+		Here, we consider 1vmax : 1vmin = 16 : 9, hence, we calculate (16/25 vmax + 9/25 vmin) * 1.05  
+	*/
+
+	font-size: calc((.64vmax + .36vmin) * 1.5); /* for pc */
+	/* font-size: 4vmin; */
+    padding: 0;
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	body {
+		font-size: calc((.64vmax + .36vmin) * 2);	/* for mobile */
+	}
+}
+
+main
+{
+    min-height: 100vh;
+}
+
+a
+{
+    text-decoration: none;
+}

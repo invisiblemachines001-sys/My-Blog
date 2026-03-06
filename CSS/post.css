@@ -1,0 +1,91 @@
+
+header, footer {
+	text-align: center;
+	padding: .2em;
+	background: #361e66;
+	color: #fff;
+}
+
+header
+{
+	font-size: 4.7em;
+}
+
+main {
+	line-height: 2em;
+	max-width: 60em;
+	margin: 1em auto;
+	padding: 1em;
+}
+
+h1, h2, h3 {
+	color: #34068a;
+	line-height: 1.5em;
+	clear: right;
+	/* font-weight: bold; */
+}
+
+h1 {
+	/* background: #068a1c; */
+	/* color: #fff; */
+	border-top: 4px solid #34068a;
+	border-bottom: 4px solid #34068a;
+	padding: 1em 2em;
+	text-align: center;
+}
+
+pre {
+	font-family: "Consolas";
+	background: #e2ddea;
+	padding: .5em;
+	border-left: 4px solid #736196;
+	overflow-x: auto;
+}
+
+code
+{
+	font-family: "Consolas";
+	background: #e5e0ec;
+	padding: .3em;
+	border-radius: .4em;
+}
+
+a {
+	color: #1e90ff;
+}
+
+img {
+	max-width: 100%;
+	margin: 1em 0em;
+	display: block;
+	border: 1px solid #000000;
+}
+
+iframe
+{
+	width: 100%;
+	height: 18em;
+}
+
+@media (min-width: 768px) {
+	/*for pc*/
+	img.float_right
+	{
+		margin-top: 0em;
+		float: right;
+	}
+	iframe
+	{
+		height: 30em;
+	}
+}
+
+.caution
+{
+	border-left: 4px solid red;
+	background:#f7e6e6 !important;
+	color: red !important;
+	padding: .5em;
+	/* border-radius: .5em; */
+	/* border: 2px dashed red; */
+}
